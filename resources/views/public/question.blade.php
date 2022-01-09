@@ -1,5 +1,7 @@
 @extends('public.layout.master')
 @section('content')
+<div id="particles-js">
+</div>
 
 
 <div class="quiz_box">
@@ -29,16 +31,16 @@
                 <div class="row">
                     <h4> {{Session::get('nextq')}}: {{$question->question}}</h4>
 
-                    <input value="a" name="ans" type="radio" required>A. {{$question->a}} </input>
-                    <input value="b" name="ans" type="radio" required>B. {{$question->b}} </input>
-                    <input value="c" name="ans" type="radio" required>C. {{$question->c}} </input>
-                    <input value="d" name="ans" type="radio" required>D. {{$question->d}} </input>
-                    <input value="{{$question->correct}}" name="dbans" type="hidden"> </input>
+                    <div> <input class="form-check-input" value="a" name="ans" type="radio" required>A. {{$question->a}} </input> </div>
+                    <div> <input class="form-check-input" value="b" name="ans" type="radio" required>B. {{$question->b}} </input></div>
+                    <div> <input class="form-check-input" value="c" name="ans" type="radio" required>C. {{$question->c}} </input></div>
+                    <div> <input class="form-check-input" value="d" name="ans" type="radio" required>D. {{$question->d}} </input></div>
+                    <div> <input value="{{$question->correct}}" name="dbans" type="hidden"> </input></div>
 
                     <div class="divNext">
                         <p class="textQues fontSize"> {{Session::get('nextq')}} of {{$i}} Question</p>
 
-                        <button>Next </button>
+                        <button class="next-btn">Next </button>
 
                     </div>
                 </div>

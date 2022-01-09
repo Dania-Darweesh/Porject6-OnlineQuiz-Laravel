@@ -1,6 +1,7 @@
 @extends('public.layout.master')
 @section('content')
-
+<div id="particles-js">
+</div>
 <!-----------------------------choice quis start------------------------------>
 <div class="choice">
     <div class="title">

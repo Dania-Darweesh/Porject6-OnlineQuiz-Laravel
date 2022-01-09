@@ -6,6 +6,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ComputerController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +32,7 @@ Route::post('/ques/{id}', [QuestionController::class, 'submitAns'])->name('quest
 
 
 
-Route::get('/home', function () {
+Route::get('/homePage', function () {
     return view('public.index');
 })->name('home');
 /* Route::get('/exam', function () {
@@ -40,3 +41,7 @@ Route::get('/home', function () {
 /* Route::get('/question', function () {
     return view('public.question');
 })->name('question'); */
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

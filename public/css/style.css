@@ -81,6 +81,13 @@ p{
     padding-right: 24px;
     padding-left:8px;
   }
+  .navbar{
+    width:100% !important;
+  }
+  .form-check-input{
+    font-size: 20px !important;
+    margin: 10px !important;
+  }
   
   #buttonStarted:hover:after {
     opacity: 1;

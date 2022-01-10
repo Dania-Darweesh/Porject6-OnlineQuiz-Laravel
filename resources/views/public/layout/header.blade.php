@@ -34,20 +34,20 @@
 
             <ul id="menu" class=" mb-0 d-flex nav justify-content-first">
 
-                <li class="nav-item ">
-                    <a class="nav-link" href="/">Home</a>
+                <li class="nav-item">
+                    <a class="nav-link color" href="/">Home</a>
                 </li>
 
                 @guest
                 @if (Route::has('login'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link color" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
                 @endif
 
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link color" href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
                 @endif
                 @else
@@ -66,8 +66,7 @@
                             @csrf
                         </form>
 
-                        <a class="dropdown-item" href="{{ route('users.index') }}">
-                            Profile</a>
+
                     </div>
                 </li>
                 @endguest

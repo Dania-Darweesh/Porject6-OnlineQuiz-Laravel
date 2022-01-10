@@ -84,6 +84,9 @@ p{
   .navbar{
     width:100% !important;
   }
+  .color{
+    color: white !important;
+  }
   .form-check-input{
     font-size: 20px !important;
     margin: 10px !important;

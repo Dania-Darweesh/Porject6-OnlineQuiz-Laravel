@@ -61,7 +61,7 @@ class ExamController extends Controller
      * @param  \App\Models\Exam  $exam
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show()
     {
         //
         $exams = Exam::all();

@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::resource('/admin/user', UserController::class);
 Route::resource('/admin/exam', ExamController::class);

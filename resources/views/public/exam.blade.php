@@ -15,7 +15,9 @@
     <div class="box">
         @foreach($exams as $exam)
         <div class="card">
-            <i class="fa fa-rocket" aria-hidden="true"></i> <!-- put img here -->
+            <!-- <i class="fa fa-rocket" aria-hidden="true"></i> -->
+            <!-- put img here -->
+            <img class="examImage" src="{{asset($exam->image)}}">
             <h3 class="question">{{$exam->name}}</h3>
             <p> {{$exam->description}}</p>
             <p>

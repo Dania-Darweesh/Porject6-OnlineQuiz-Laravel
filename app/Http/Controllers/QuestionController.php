@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Exam;
 use App\Models\Question;
+use App\Models\Result;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 use function PHPUnit\Framework\countOf;
@@ -93,12 +95,14 @@ class QuestionController extends Controller
         $wrongans = Session::get('wrongans');
         $correctans = Session::get('correctans');
         $r = Session::get('r');
+
         $validate = $request->validate([
 
             'ans' => 'required',
             'dbans' => 'required',
 
         ]);
+
 
         $nextq += 1; //2
         $r += 1; //1
@@ -127,16 +131,38 @@ class QuestionController extends Controller
             } else {
                 $score = Session::get('correctans');
                 $score2 = Session::get('wrongans');
-                /* $winner = "{{asset('img/factors-amico.png')}}";
-                $loser = "{{asset('img/looser.png')}}";
-                $color = "background-color:hotpink"; */
+
                 $win = " hey you winner!";
+                $loser = " Oops , you are loser!";
 
 
 
 
                 if ($score >= $score2) {
-                    return view('public.end', compact('win', 'data'));
+                    $user = Auth::user();
+                    $userID = $user->id;
+
+                    Result::create([
+                        'user_id' => $userID,
+                        'score'  => $score,
+                        'exam_id' => $id,
+                    ]);
+                    $resultUser = Result::where('user_id', $userID)->get();
+
+
+
+                    return view('public.end', compact('win', 'data', 'resultUser')); // add here 
+                } else {
+                    $user = Auth::user();
+                    $userID = $user->id;
+
+                    Result::create([
+                        'user_id' => $userID,
+                        'score'  => $score,
+                        'exam_id' => $id,
+                    ]);
+                    $resultUser = Result::where('user_id', $userID)->get();
+                    return view('public.end', compact('loser', 'data', 'resultUser'));
                 }
             }
         }
